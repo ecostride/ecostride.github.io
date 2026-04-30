@@ -1,319 +1,415 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>EcoStride</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>EcoStride | 永續金融新紀元</title>
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons (用於增加精緻感) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-<style>
-:root {
-    --primary: #00c896;
-    --dark: #0a2540;
-    --bg: #f7f9fc;
-    --card: #ffffff;
-}
+    <style>
+        :root {
+            --primary: #00f2ad; /* 更亮眼的綠色 */
+            --primary-dark: #00c896;
+            --dark: #0f172a;
+            --secondary: #1e293b;
+            --bg: #050810; /* 深色背景更有專業金融感 */
+            --card-bg: rgba(30, 41, 59, 0.5);
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
 
-* {
-    box-sizing: border-box;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-html {
-    scroll-behavior: smooth;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background: var(--bg);
-    color: var(--dark);
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-/* NAVBAR */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(255,255,255,0.7);
-    backdrop-filter: blur(14px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 14px 8%;
-    z-index: 1000;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-}
+        /* 裝飾背景 */
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 242, 173, 0.15) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
+            filter: blur(60px);
+        }
 
-.nav-links {
-    display: flex;
-    gap: 25px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+        /* NAVBAR */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
 
-.nav-links a {
-    text-decoration: none;
-    color: var(--dark);
-    font-weight: 500;
-    transition: 0.3s;
-}
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--primary), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-.nav-links a:hover {
-    color: var(--primary);
-}
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
 
-.nav-btn {
-    background: var(--primary);
-    color: white;
-    padding: 10px 16px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-}
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dim);
+            font-weight: 500;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
 
-.nav-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0,200,150,0.25);
-}
+        .nav-links a:hover {
+            color: var(--primary);
+        }
 
-body {
-    padding-top: 80px;
-}
+        .nav-btn {
+            background: var(--primary);
+            color: var(--dark);
+            padding: 10px 24px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-/* SECTION */
-section {
-    padding: 100px 8%;
-}
+        .nav-btn:hover {
+            box-shadow: 0 0 20px rgba(0, 242, 173, 0.4);
+            transform: translateY(-2px);
+        }
 
-h1 {
-    font-size: 54px;
-    margin-bottom: 20px;
-    line-height: 1.2;
-}
+        /* HERO */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            gap: 40px;
+            position: relative;
+        }
 
-h2 {
-    text-align: center;
-    margin-bottom: 50px;
-    font-size: 34px;
-}
+        .hero-text {
+            max-width: 600px;
+            z-index: 2;
+        }
 
-p {
-    color: #555;
-    line-height: 1.7;
-}
+        .hero h1 {
+            font-size: clamp(40px, 5vw, 64px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+        }
 
-/* HERO */
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 60px;
-}
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            margin-bottom: 35px;
+        }
 
-.hero-text {
-    max-width: 520px;
-}
+        .hero-img-container {
+            position: relative;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
 
-.hero img {
-    width: 420px;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-}
+        .hero-img-container img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 30px;
+            box-shadow: 0 30px 100px rgba(0, 242, 173, 0.15);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
 
-.btn {
-    background: var(--primary);
-    color: white;
-    padding: 12px 26px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: 0.3s;
-}
+        /* SECTION COMMON */
+        section {
+            padding: 120px 8%;
+        }
 
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0,200,150,0.3);
-}
+        h2 {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 60px;
+            font-weight: 800;
+        }
 
-/* GRID */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 25px;
-}
+        /* GRID & CARDS */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
 
-.card {
-    background: var(--card);
-    padding: 25px;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    transition: 0.3s;
-}
+        .card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
 
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-}
+        .card:hover {
+            background: rgba(30, 41, 59, 0.8);
+            border-color: var(--primary);
+            transform: translateY(-10px);
+        }
 
-/* FLOW */
-.flow {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
+        .card h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+            color: var(--primary);
+        }
 
-.circle {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary), #00a87a);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    box-shadow: 0 10px 30px rgba(0,200,150,0.25);
-}
+        .card p {
+            color: var(--text-dim);
+        }
 
-.arrow {
-    font-size: 28px;
-    color: #888;
-}
+        /* TRINITY FLOW */
+        .flow-container {
+            background: rgba(0, 242, 173, 0.03);
+            border-radius: 40px;
+            padding: 80px 20px;
+            text-align: center;
+        }
 
-/* TEAM */
-.team-card {
-    text-align: center;
-}
+        .flow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
 
-.team-card img {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-    object-fit: cover;
-}
+        .circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: var(--dark);
+            border: 2px solid var(--primary);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 0 30px rgba(0, 242, 173, 0.1);
+            transition: 0.3s;
+        }
 
-/* ANIMATION */
-.card, .hero-text, .hero img {
-    animation: fadeUp 0.8s ease forwards;
-}
+        .circle i { margin-bottom: 10px; color: var(--primary); }
 
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        .arrow {
+            font-size: 32px;
+            color: var(--primary);
+            opacity: 0.5;
+        }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-    }
+        /* TEAM */
+        .team-card {
+            text-align: center;
+        }
 
-    .hero img {
-        width: 100%;
-        max-width: 380px;
-    }
-}
+        .team-img {
+            width: 100px;
+            height: 100px;
+            background: #2d3748;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255,255,255,0.1);
+        }
 
-</style>
+        /* ANIMATION */
+        [data-reveal] {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        [data-reveal].active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .navbar { padding: 15px 5%; }
+            .hero {
+                flex-direction: column;
+                padding-top: 120px;
+                text-align: center;
+                height: auto;
+            }
+            .nav-links { display: none; } /* 手機端建議做漢堡選單，此處先隱藏保持精美 */
+            .flow { gap: 20px; }
+            .arrow { transform: rotate(90deg); }
+        }
+    </style>
 </head>
 
 <body>
+    <div class="blob" style="top: -10%; left: -10%;"></div>
+    <div class="blob" style="bottom: 20%; right: -10%;"></div>
 
-<nav class="navbar">
-    <div><b>EcoStride</b></div>
-    <ul class="nav-links">
-        <li><a href="#problem">Problem</a></li>
-        <li><a href="#solution">Solution</a></li>
-        <li><a href="#product">Product</a></li>
-        <li><a href="#team">Team</a></li>
-    </ul>
-    <button class="nav-btn">View Proposal</button>
-</nav>
+    <nav class="navbar">
+        <div class="logo">EcoStride</div>
+        <ul class="nav-links">
+            <li><a href="#problem">痛點分析</a></li>
+            <li><a href="#solution">核心理念</a></li>
+            <li><a href="#product">產品特點</a></li>
+            <li><a href="#team">專業團隊</a></li>
+        </ul>
+        <button class="nav-btn">立即參與</button>
+    </nav>
 
-<section class="hero">
-    <div class="hero-text">
-        <h1>Turn Every Step Into Real-World Assets</h1>
-        <p>The first sustainable finance ecosystem combining behavioral finance and RWA tokenization.</p>
-        <button class="btn">Get Started</button>
-    </div>
-    <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231" />
-</section>
-
-<section id="problem">
-    <h2>Problem</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>Broken Incentives</h3>
-            <p>Rewards lack long-term value</p>
+    <section class="hero">
+        <div class="hero-text">
+            <h1 data-reveal>讓你的每一步<br><span style="color: var(--primary)">都成為真實資產</span></h1>
+            <p data-reveal>全球首創結合行為金融學與 RWA 代幣化的永續金融生態系統，將健康生活轉化為長期收益。</p>
+            <div data-reveal>
+                <button class="nav-btn" style="padding: 16px 40px; font-size: 1.1rem;">探索白皮書</button>
+            </div>
         </div>
-        <div class="card">
-            <h3>High Barriers</h3>
-            <p>Green assets require large capital</p>
+        <div class="hero-img-container" data-reveal>
+            <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231" alt="Eco Tech">
         </div>
-        <div class="card">
-            <h3>Insurance Burden</h3>
-            <p>Health programs become costs</p>
-        </div>
-    </div>
-</section>
+    </section>
 
-<section id="solution">
-    <h2>Trinity Value Loop</h2>
-    <div class="flow">
-        <div class="circle">Move</div>
-        <div class="arrow">→</div>
-        <div class="circle">Invest</div>
-        <div class="arrow">→</div>
-        <div class="circle">Earn</div>
-    </div>
-</section>
-
-<section id="product">
-    <h2>Product</h2>
-    <div class="grid">
-        <div class="card"><h3>EcoStride App</h3><p>Convert steps into capital</p></div>
-        <div class="card"><h3>RWA Engine</h3><p>Tokenize green assets</p></div>
-        <div class="card"><h3>Smart Contract</h3><p>Auto yield distribution</p></div>
-        <div class="card"><h3>Privacy Layer</h3><p>ZKP protection</p></div>
-    </div>
-</section>
-
-<section id="team">
-    <h2>Our Team</h2>
-    <div class="grid">
-        <div class="card team-card">
-            <img src="https://via.placeholder.com/100">
-            <h3>Tseng, Wan-Ning</h3>
-            <p>Strategy & Finance</p>
+    <section id="problem">
+        <h2 data-reveal>打破現有框架的痛點</h2>
+        <div class="grid">
+            <div class="card" data-reveal>
+                <i data-lucide="trending-down" style="color:var(--primary); margin-bottom: 20px;"></i>
+                <h3>激勵機制失效</h3>
+                <p>傳統綠色點數缺乏長期價值與流通性，難以驅動持久的行為改變。</p>
+            </div>
+            <div class="card" data-reveal>
+                <i data-lucide="lock" style="color:var(--primary); margin-bottom: 20px;"></i>
+                <h3>進入門檻過高</h3>
+                <p>優質的綠色能源與永續資產投資通常僅限於大型機構或高淨值資產人士。</p>
+            </div>
+            <div class="card" data-reveal>
+                <i data-lucide="shield-alert" style="color:var(--primary); margin-bottom: 20px;"></i>
+                <h3>保險成本沈重</h3>
+                <p>企業與個人面臨健康風險導致的保費攀升，卻缺乏有效的風險預防誘因。</p>
+            </div>
         </div>
-        <div class="card team-card">
-            <img src="https://via.placeholder.com/100">
-            <h3>Tsai, Yi-Ling</h3>
-            <p>Risk & FinTech</p>
-        </div>
-        <div class="card team-card">
-            <img src="https://via.placeholder.com/100">
-            <h3>He, Shun-Yu</h3>
-            <p>Engineering</p>
-        </div>
-    </div>
-</section>
+    </section>
 
+    <section id="solution">
+        <h2 data-reveal>Trinity Value Loop</h2>
+        <div class="flow-container" data-reveal>
+            <div class="flow">
+                <div class="circle"><i data-lucide="footprints"></i>Move</div>
+                <div class="arrow">→</div>
+                <div class="circle"><i data-lucide="pie-chart"></i>Invest</div>
+                <div class="arrow">→</div>
+                <div class="circle"><i data-lucide="coins"></i>Earn</div>
+            </div>
+            <p style="margin-top: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                透過 Proof of Activity (PoA) 驗證您的每一份努力，並自動將獎勵轉化為 RWA 代幣化資產的股份。
+            </p>
+        </div>
+    </section>
+
+    <section id="product">
+        <h2 data-reveal>產品生態系</h2>
+        <div class="grid">
+            <div class="card" data-reveal>
+                <h3>EcoStride App</h3>
+                <p>行為金融驅動的數據中心，即時將步數轉化為投資額度。</p>
+            </div>
+            <div class="card" data-reveal>
+                <h3>RWA Engine</h3>
+                <p>將實體綠能資產（如太陽能板）碎片化，實現低門檻持有。</p>
+            </div>
+            <div class="card" data-reveal>
+                <h3>Yield Contract</h3>
+                <p>全自動化收益分配系統，確保資產產生的價值透明回饋。</p>
+            </div>
+            <div class="card" data-reveal>
+                <h3>Privacy Shield</h3>
+                <p>採用零知識證明 (ZKP) 技術，保護用戶健康隱私同時完成驗證。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="team">
+        <h2 data-reveal>專業團隊</h2>
+        <div class="grid">
+            <div class="card team-card" data-reveal>
+                <div class="team-img"><i data-lucide="user"></i></div>
+                <h3>曾琬甯 Wan-Ning</h3>
+                <p>策略與財務金融</p>
+            </div>
+            <div class="card team-card" data-reveal>
+                <div class="team-img"><i data-lucide="user"></i></div>
+                <h3>蔡宜伶 Yi-Ling</h3>
+                <p>風險管理與金科</p>
+            </div>
+            <div class="card team-card" data-reveal>
+                <div class="team-img"><i data-lucide="user"></i></div>
+                <h3>何舜宇 Shun-Yu</h3>
+                <p>工程與技術架構</p>
+            </div>
+        </div>
+    </section>
+
+    <footer style="padding: 40px; text-align: center; color: var(--text-dim); font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05);">
+        © 2024 EcoStride Ecosystem. All Rights Reserved.
+    </footer>
+
+    <script>
+        // 初始化圖標
+        lucide.createIcons();
+
+        // 滾動偵測動畫
+        const revealElements = document.querySelectorAll('[data-reveal]');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    </script>
 </body>
 </html>
-
