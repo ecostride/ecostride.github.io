@@ -12,64 +12,82 @@
 
         section {
             padding: 80px 10%;
-            text-align: center;
         }
 
         h1 {
             font-size: 56px;
-            margin-bottom: 20px;
         }
 
         h2 {
-            font-size: 32px;
-            margin-bottom: 30px;
+            text-align: center;
+            margin-bottom: 40px;
         }
 
         p {
             color: #555;
         }
 
+        .center {
+            text-align: center;
+        }
+
         .btn {
             background: #00c896;
             color: white;
-            padding: 14px 28px;
-            border: none;
+            padding: 12px 24px;
             border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
+            border: none;
         }
 
-        .btn:hover {
-            opacity: 0.8;
-        }
-
-        .hero {
-            background: white;
-        }
-
+        /* GRID */
         .grid {
             display: flex;
-            justify-content: center;
             gap: 30px;
             flex-wrap: wrap;
+            justify-content: center;
         }
 
         .card {
             background: white;
-            padding: 30px;
+            padding: 25px;
             border-radius: 12px;
             width: 250px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: 0.3s;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
+        /* FLOW */
+        .flow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
-        .highlight {
-            color: #00c896;
+        .circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #00c896;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: bold;
+        }
+
+        .arrow {
+            font-size: 30px;
+        }
+
+        /* TEAM */
+        .team {
+            text-align: center;
+        }
+
+        .team img {
+            width: 100px;
+            border-radius: 50%;
         }
 
     </style>
@@ -78,7 +96,7 @@
 <body>
 
 <!-- HERO -->
-<section class="hero">
+<section class="center">
     <h1>EcoStride</h1>
     <p>Turn Every Step Into Real-World Assets</p>
     <br>
@@ -91,23 +109,30 @@
     <div class="grid">
         <div class="card">
             <h3>Broken Incentives</h3>
-            <p>Rewards lack long-term value</p>
+            <p>No long-term value</p>
         </div>
         <div class="card">
             <h3>High Barriers</h3>
-            <p>Green assets require large capital</p>
+            <p>Green assets need high capital</p>
         </div>
         <div class="card">
             <h3>Insurance Costs</h3>
-            <p>Health programs become expenses</p>
+            <p>Programs become expenses</p>
         </div>
     </div>
 </section>
 
-<!-- SOLUTION -->
+<!-- FLOW -->
 <section>
-    <h2>Solution</h2>
-    <p><span class="highlight">Move → Invest → Earn</span></p>
+    <h2>Trinity Value Loop</h2>
+    <div class="flow">
+        <div class="circle">Move</div>
+        <div class="arrow">→</div>
+        <div class="circle">Invest</div>
+        <div class="arrow">→</div>
+        <div class="circle">Earn</div>
+    </div>
+    <p class="center">A closed-loop ecosystem connecting health, finance, and sustainability</p>
 </section>
 
 <!-- PRODUCT -->
@@ -116,34 +141,53 @@
     <div class="grid">
         <div class="card">
             <h3>EcoStride App</h3>
-            <p>Convert steps into investment capital</p>
+            <p>Track steps & convert to capital</p>
         </div>
         <div class="card">
             <h3>RWA Engine</h3>
-            <p>Tokenized green energy assets</p>
+            <p>Tokenize green energy assets</p>
         </div>
         <div class="card">
-            <h3>Smart Contracts</h3>
+            <h3>Smart Contract</h3>
             <p>Auto distribution & compounding</p>
         </div>
         <div class="card">
             <h3>Privacy Layer</h3>
-            <p>ZKP protects user data</p>
+            <p>ZKP data protection</p>
         </div>
     </div>
 </section>
 
-<!-- MARKET -->
+<!-- TEAM -->
 <section>
-    <h2>Market Opportunity</h2>
-    <p><span class="highlight">$16 Trillion</span> Tokenization Market by 2030</p>
+    <h2>Our Team</h2>
+    <div class="grid">
+        
+        <div class="card team">
+            <img src="https://via.placeholder.com/100">
+            <h3>Tseng, Wan-Ning</h3>
+            <p>Quantitative Finance</p>
+        </div>
+
+        <div class="card team">
+            <img src="https://via.placeholder.com/100">
+            <h3>Tsai, Yi-Ling</h3>
+            <p>FinTech & Risk</p>
+        </div>
+
+        <div class="card team">
+            <img src="https://via.placeholder.com/100">
+            <h3>He, Shun-Yu</h3>
+            <p>Financial Engineering</p>
+        </div>
+
+    </div>
 </section>
 
 <!-- CTA -->
-<section>
+<section class="center">
     <h2>Join the Future</h2>
     <p>Redefining Sustainable Finance</p>
-    <br>
     <button class="btn">Contact Us</button>
 </section>
 
