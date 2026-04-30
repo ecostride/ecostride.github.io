@@ -6,61 +6,145 @@
         body {
             font-family: Arial;
             margin: 0;
-            background: #ffffff;
+            background: #f7f9fc;
             color: #0a2540;
+        }
+
+        section {
+            padding: 80px 10%;
             text-align: center;
         }
-        section {
-            padding: 80px 20px;
-        }
+
         h1 {
-            font-size: 48px;
-        }
-        h2 {
+            font-size: 56px;
             margin-bottom: 20px;
         }
+
+        h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        p {
+            color: #555;
+        }
+
         .btn {
             background: #00c896;
             color: white;
-            padding: 12px 24px;
+            padding: 14px 28px;
             border: none;
-            margin: 10px;
+            border-radius: 6px;
+            font-size: 16px;
             cursor: pointer;
         }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: white;
+        }
+
+        .grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 250px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .highlight {
+            color: #00c896;
+            font-weight: bold;
+        }
+
     </style>
 </head>
 
 <body>
 
-<section>
+<!-- HERO -->
+<section class="hero">
     <h1>EcoStride</h1>
     <p>Turn Every Step Into Real-World Assets</p>
+    <br>
     <button class="btn">View Proposal</button>
 </section>
 
+<!-- PROBLEM -->
 <section>
     <h2>Problem</h2>
-    <p>Broken Incentives • High Barriers • Insurance Costs</p>
+    <div class="grid">
+        <div class="card">
+            <h3>Broken Incentives</h3>
+            <p>Rewards lack long-term value</p>
+        </div>
+        <div class="card">
+            <h3>High Barriers</h3>
+            <p>Green assets require large capital</p>
+        </div>
+        <div class="card">
+            <h3>Insurance Costs</h3>
+            <p>Health programs become expenses</p>
+        </div>
+    </div>
 </section>
 
+<!-- SOLUTION -->
 <section>
     <h2>Solution</h2>
-    <p>Move → Invest → Earn</p>
+    <p><span class="highlight">Move → Invest → Earn</span></p>
 </section>
 
+<!-- PRODUCT -->
 <section>
     <h2>Product</h2>
-    <p>App • RWA Engine • Smart Contracts • Privacy Layer</p>
+    <div class="grid">
+        <div class="card">
+            <h3>EcoStride App</h3>
+            <p>Convert steps into investment capital</p>
+        </div>
+        <div class="card">
+            <h3>RWA Engine</h3>
+            <p>Tokenized green energy assets</p>
+        </div>
+        <div class="card">
+            <h3>Smart Contracts</h3>
+            <p>Auto distribution & compounding</p>
+        </div>
+        <div class="card">
+            <h3>Privacy Layer</h3>
+            <p>ZKP protects user data</p>
+        </div>
+    </div>
 </section>
 
+<!-- MARKET -->
 <section>
-    <h2>Market</h2>
-    <p>$16T Tokenization Market by 2030</p>
+    <h2>Market Opportunity</h2>
+    <p><span class="highlight">$16 Trillion</span> Tokenization Market by 2030</p>
 </section>
 
+<!-- CTA -->
 <section>
-    <h2>Join Us</h2>
+    <h2>Join the Future</h2>
     <p>Redefining Sustainable Finance</p>
+    <br>
+    <button class="btn">Contact Us</button>
 </section>
 
 </body>
