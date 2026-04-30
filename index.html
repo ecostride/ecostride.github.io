@@ -1,163 +1,239 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>EcoStride</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>EcoStride</title>
 
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        body {
-            font-family: Arial;
-            margin: 0;
-            background: #f7f9fc;
-            color: #0a2540;
-        }
+<style>
+:root {
+    --primary: #00c896;
+    --dark: #0a2540;
+    --bg: #f7f9fc;
+    --card: #ffffff;
+}
 
-        section {
-            padding: 100px 10%;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        h1 {
-            font-size: 60px;
-            margin-bottom: 20px;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        h2 {
-            text-align: center;
-            margin-bottom: 50px;
-        }
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+}
 
-        p {
-            color: #555;
-            line-height: 1.6;
-        }
+/* NAVBAR */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(14px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 8%;
+    z-index: 1000;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
 
-        /* NAVBAR */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255,255,255,0.8);
-            backdrop-filter: blur(12px);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 10%;
-            z-index: 1000;
-        }
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+    transition: 0.3s;
+}
 
-        .nav-links a {
-            text-decoration: none;
-            color: #0a2540;
-        }
+.nav-links a:hover {
+    color: var(--primary);
+}
 
-        .nav-btn {
-            background: #00c896;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 6px;
-            border: none;
-        }
+.nav-btn {
+    background: var(--primary);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-        body {
-            padding-top: 80px;
-        }
+.nav-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,200,150,0.25);
+}
 
-        /* HERO */
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 50px;
-        }
+body {
+    padding-top: 80px;
+}
 
-        .hero-text {
-            max-width: 500px;
-        }
+/* SECTION */
+section {
+    padding: 100px 8%;
+}
 
-        .hero img {
-            width: 400px;
-        }
+h1 {
+    font-size: 54px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
 
-        .btn {
-            background: #00c896;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 6px;
-            border: none;
-            margin-top: 20px;
-        }
+h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 34px;
+}
 
-        /* GRID */
-        .grid {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+p {
+    color: #555;
+    line-height: 1.7;
+}
 
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 14px;
-            width: 260px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
-            transition: 0.3s;
-        }
+/* HERO */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
 
-        .card:hover {
-            transform: translateY(-10px);
-        }
+.hero-text {
+    max-width: 520px;
+}
 
-        /* FLOW */
-        .flow {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-        }
+.hero img {
+    width: 420px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
 
-        .circle {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: #00c896;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
+.btn {
+    background: var(--primary);
+    color: white;
+    padding: 12px 26px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+}
 
-        .arrow {
-            font-size: 30px;
-        }
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,200,150,0.3);
+}
 
-        /* TEAM */
-        .team-card {
-            text-align: center;
-        }
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
 
-        .team-card img {
-            width: 100px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-        }
+.card {
+    background: var(--card);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
 
-    </style>
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+/* FLOW */
+.flow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), #00a87a);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(0,200,150,0.25);
+}
+
+.arrow {
+    font-size: 28px;
+    color: #888;
+}
+
+/* TEAM */
+.team-card {
+    text-align: center;
+}
+
+.team-card img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+/* ANIMATION */
+.card, .hero-text, .hero img {
+    animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero img {
+        width: 100%;
+        max-width: 380px;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <nav class="navbar">
     <div><b>EcoStride</b></div>
     <ul class="nav-links">
@@ -169,18 +245,15 @@
     <button class="nav-btn">View Proposal</button>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
     <div class="hero-text">
         <h1>Turn Every Step Into Real-World Assets</h1>
         <p>The first sustainable finance ecosystem combining behavioral finance and RWA tokenization.</p>
         <button class="btn">Get Started</button>
     </div>
-
-    <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231">
+    <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231" />
 </section>
 
-<!-- PROBLEM -->
 <section id="problem">
     <h2>Problem</h2>
     <div class="grid">
@@ -199,7 +272,6 @@
     </div>
 </section>
 
-<!-- FLOW -->
 <section id="solution">
     <h2>Trinity Value Loop</h2>
     <div class="flow">
@@ -211,54 +283,37 @@
     </div>
 </section>
 
-<!-- PRODUCT -->
 <section id="product">
     <h2>Product</h2>
     <div class="grid">
-        <div class="card">
-            <h3>EcoStride App</h3>
-            <p>Convert steps into capital</p>
-        </div>
-        <div class="card">
-            <h3>RWA Engine</h3>
-            <p>Tokenize green assets</p>
-        </div>
-        <div class="card">
-            <h3>Smart Contract</h3>
-            <p>Auto yield distribution</p>
-        </div>
-        <div class="card">
-            <h3>Privacy Layer</h3>
-            <p>ZKP protection</p>
-        </div>
+        <div class="card"><h3>EcoStride App</h3><p>Convert steps into capital</p></div>
+        <div class="card"><h3>RWA Engine</h3><p>Tokenize green assets</p></div>
+        <div class="card"><h3>Smart Contract</h3><p>Auto yield distribution</p></div>
+        <div class="card"><h3>Privacy Layer</h3><p>ZKP protection</p></div>
     </div>
 </section>
 
-<!-- TEAM -->
 <section id="team">
     <h2>Our Team</h2>
     <div class="grid">
-
         <div class="card team-card">
             <img src="https://via.placeholder.com/100">
             <h3>Tseng, Wan-Ning</h3>
             <p>Strategy & Finance</p>
         </div>
-
         <div class="card team-card">
             <img src="https://via.placeholder.com/100">
             <h3>Tsai, Yi-Ling</h3>
             <p>Risk & FinTech</p>
         </div>
-
         <div class="card team-card">
             <img src="https://via.placeholder.com/100">
             <h3>He, Shun-Yu</h3>
             <p>Engineering</p>
         </div>
-
     </div>
 </section>
 
 </body>
 </html>
+
