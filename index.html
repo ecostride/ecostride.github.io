@@ -13,28 +13,25 @@
             margin: 0;
             background: #f7f9fc;
             color: #0a2540;
-            padding-top: 80px;
         }
 
         section {
-            padding: 80px 10%;
+            padding: 100px 10%;
         }
 
         h1 {
-            font-size: 56px;
+            font-size: 60px;
+            margin-bottom: 20px;
         }
 
         h2 {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         p {
             color: #555;
-        }
-
-        .center {
-            text-align: center;
+            line-height: 1.6;
         }
 
         /* NAVBAR */
@@ -42,25 +39,19 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255,255,255,0.9);
-            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(12px);
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 10%;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             z-index: 1000;
         }
 
-        .logo {
-            font-weight: bold;
-            font-size: 20px;
-        }
-
         .nav-links {
-            list-style: none;
             display: flex;
             gap: 30px;
+            list-style: none;
         }
 
         .nav-links a {
@@ -68,25 +59,41 @@
             color: #0a2540;
         }
 
-        .nav-links a:hover {
-            color: #00c896;
-        }
-
         .nav-btn {
             background: #00c896;
             color: white;
-            border: none;
             padding: 8px 16px;
             border-radius: 6px;
+            border: none;
         }
 
-        /* BUTTON */
+        body {
+            padding-top: 80px;
+        }
+
+        /* HERO */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-text {
+            max-width: 500px;
+        }
+
+        .hero img {
+            width: 400px;
+        }
+
         .btn {
             background: #00c896;
             color: white;
             padding: 12px 24px;
             border-radius: 6px;
             border: none;
+            margin-top: 20px;
         }
 
         /* GRID */
@@ -99,15 +106,15 @@
 
         .card {
             background: white;
-            padding: 25px;
-            border-radius: 12px;
-            width: 250px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 30px;
+            border-radius: 14px;
+            width: 260px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
             transition: 0.3s;
         }
 
         .card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-10px);
         }
 
         /* FLOW */
@@ -115,13 +122,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            gap: 30px;
         }
 
         .circle {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             background: #00c896;
             color: white;
@@ -136,9 +142,14 @@
         }
 
         /* TEAM */
-        .team img {
+        .team-card {
+            text-align: center;
+        }
+
+        .team-card img {
             width: 100px;
             border-radius: 50%;
+            margin-bottom: 10px;
         }
 
     </style>
@@ -148,7 +159,7 @@
 
 <!-- NAVBAR -->
 <nav class="navbar">
-    <div class="logo">EcoStride</div>
+    <div><b>EcoStride</b></div>
     <ul class="nav-links">
         <li><a href="#problem">Problem</a></li>
         <li><a href="#solution">Solution</a></li>
@@ -159,11 +170,14 @@
 </nav>
 
 <!-- HERO -->
-<section class="center">
-    <h1>EcoStride</h1>
-    <p>Turn Every Step Into Real-World Assets</p>
-    <br>
-    <button class="btn">View Proposal</button>
+<section class="hero">
+    <div class="hero-text">
+        <h1>Turn Every Step Into Real-World Assets</h1>
+        <p>The first sustainable finance ecosystem combining behavioral finance and RWA tokenization.</p>
+        <button class="btn">Get Started</button>
+    </div>
+
+    <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231">
 </section>
 
 <!-- PROBLEM -->
@@ -172,15 +186,15 @@
     <div class="grid">
         <div class="card">
             <h3>Broken Incentives</h3>
-            <p>No long-term value</p>
+            <p>Rewards lack long-term value</p>
         </div>
         <div class="card">
             <h3>High Barriers</h3>
-            <p>Green assets need high capital</p>
+            <p>Green assets require large capital</p>
         </div>
         <div class="card">
-            <h3>Insurance Costs</h3>
-            <p>Programs become expenses</p>
+            <h3>Insurance Burden</h3>
+            <p>Health programs become costs</p>
         </div>
     </div>
 </section>
@@ -195,7 +209,6 @@
         <div class="arrow">→</div>
         <div class="circle">Earn</div>
     </div>
-    <p class="center">A closed-loop ecosystem connecting health, finance, and sustainability</p>
 </section>
 
 <!-- PRODUCT -->
@@ -204,19 +217,19 @@
     <div class="grid">
         <div class="card">
             <h3>EcoStride App</h3>
-            <p>Track steps & convert to capital</p>
+            <p>Convert steps into capital</p>
         </div>
         <div class="card">
             <h3>RWA Engine</h3>
-            <p>Tokenize green energy assets</p>
+            <p>Tokenize green assets</p>
         </div>
         <div class="card">
             <h3>Smart Contract</h3>
-            <p>Auto distribution & compounding</p>
+            <p>Auto yield distribution</p>
         </div>
         <div class="card">
             <h3>Privacy Layer</h3>
-            <p>ZKP data protection</p>
+            <p>ZKP protection</p>
         </div>
     </div>
 </section>
@@ -225,31 +238,26 @@
 <section id="team">
     <h2>Our Team</h2>
     <div class="grid">
-        <div class="card team">
+
+        <div class="card team-card">
             <img src="https://via.placeholder.com/100">
             <h3>Tseng, Wan-Ning</h3>
-            <p>Quantitative Finance</p>
+            <p>Strategy & Finance</p>
         </div>
 
-        <div class="card team">
+        <div class="card team-card">
             <img src="https://via.placeholder.com/100">
             <h3>Tsai, Yi-Ling</h3>
-            <p>FinTech & Risk Management</p>
+            <p>Risk & FinTech</p>
         </div>
 
-        <div class="card team">
+        <div class="card team-card">
             <img src="https://via.placeholder.com/100">
             <h3>He, Shun-Yu</h3>
-            <p>Financial Engineering</p>
+            <p>Engineering</p>
         </div>
-    </div>
-</section>
 
-<!-- CTA -->
-<section class="center">
-    <h2>Join the Future</h2>
-    <p>Redefining Sustainable Finance</p>
-    <button class="btn">Contact Us</button>
+    </div>
 </section>
 
 </body>
